@@ -9,16 +9,16 @@
     "serve": "vite preview"
   },
   "keywords": [
-    "react",
-    "gojs"
+    "react"
   ],
   "author": "Northwoods Software",
   "dependencies": {
-    "gojs": "^2.3.11",
-    "gojs-react": "^1.1.2",
-    "immer": "^10.0.2",
+    "d3": "^7.8.5",
+    "lucide-react": "^0.286.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.16.0",
+    "styled-components": "^6.0.9"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,8 +30,10 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/d3": "^7.4.2",
     "@types/react": "^18.2.22",
     "@types/react-dom": "^18.2.7",
+    "@types/styled-components": "^5.1.28",
     "@vitejs/plugin-react": "^4.1.0",
     "typescript": "^5.2.2",
     "vite": "^4.4.9"
