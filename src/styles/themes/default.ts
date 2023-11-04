@@ -1,6 +1,7 @@
 export const defaultTheme = {
   colors: {
     white: '#ffffff',
+    black: '#000000',
     gray: {
       100: '#f5f5f5',
       200: '#e0e0e0',
@@ -34,6 +35,17 @@ export const defaultTheme = {
       800: '#2b1046',
       900: '#1e0a34',
     },
+    red: {
+      100: '#fff0f0',
+      200: '#ffd1d1',
+      300: '#ffb3b3',
+      400: '#ff9999',
+      500: '#ff8080',
+      600: '#ff6666',
+      700: '#ff4d4d',
+      800: '#ff3333',
+      900: '#ff1a1a',
+    }
   },
   // Outras configurações do tema
-};
+} as const;

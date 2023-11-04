@@ -10,4 +10,13 @@ export const SubHeaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  a {
+    text-decoration: none;
+    color: ${(props) => props.theme.colors.gray[300]};
+
+    &:hover {
+      color: ${(props) => props.theme.colors.red[500]};
+    }
+  }
 `

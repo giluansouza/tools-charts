@@ -1,3 +1,4 @@
+import { FlowArrow, MapTrifold, TreeStructure } from "phosphor-react";
 import { SubHeader } from "../../components/SubHeader";
 import { Card, Main } from "./styles";
 
@@ -5,28 +6,33 @@ export function Home() {
   return (
     <>
       <SubHeader>
-        .Analytics - Gráficos
+        .analytics
       </SubHeader>
       <Main>
         <Card>
-          <header>Organograma</header>
-          <div>
-            Crie organogramas de forma simples e intuitiva
-          </div>
-          <footer>
-            <a href="/org-chart">Acessar</a>
-          </footer>
+          <MapTrifold size={32} />      
+          <h2>
+            Densidade Kernel
+          </h2>
+          <button disabled>Acessar</button>
+        </Card>
+
+        <Card>
+          <TreeStructure size={32} />
+          <h2>
+            Organograma
+          </h2>
+          <a href="/org-chart">Acessar</a>
         </Card>
         
         <Card>
-          <header>Análise de Vínculos</header>
-          <div>
-            Crie suas análises de vínculos e facilite o entendimento dos seus dados
-          </div>
-          <footer>
-            <a href="/link-analysis">Acessar</a>
-          </footer>
+          <FlowArrow size={32} />      
+          <h2>
+            Análise de Vínculos
+          </h2>
+          <a href="/link-analysis">Acessar</a>
         </Card>
+
       </Main>
     </>
   )

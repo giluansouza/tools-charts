@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react"
 import * as d3 from 'd3'
-// import { zoom } from 'd3-zoom';
+import { LinkAnalysisContainer } from "./styles";
 
 interface Node {
   id: string;
@@ -139,11 +139,15 @@ export const ForceDirectedGraph: React.FC<ForceDirectedGraphProps> = ({ width, h
     }
   }, [])
   
-  return <svg
-    ref={svgRef}
-    width={width}
-    height={height}
-    viewBox={`0 0 ${width} ${height}`}
-    style={{ maxWidth: '100%', height: 'auto' }}
-  ></svg>
+  return (
+    <LinkAnalysisContainer>
+      <svg
+        ref={svgRef}
+        // width={width}
+        height={height}
+        viewBox={`0 0 ${width} ${height}`}
+        style={{ maxWidth: '100%', height: 'auto' }}
+      ></svg>
+    </LinkAnalysisContainer>
+  )
 }

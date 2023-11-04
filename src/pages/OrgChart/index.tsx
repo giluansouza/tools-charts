@@ -1,16 +1,18 @@
-import { Barchart } from '../../components/BarChart';
-import { SubHeader } from '../../components/SubHeader';
+import { SubHeader } from '../../components/SubHeader'
+import { OrgChart2 } from './components/OrgChart2';
+// import { OrgChartComponent } from './components/OrgChart'
 
- export default function OrgChart() {
+ export default function OrgChartPage() {
 
   return (
     <div>
       <SubHeader>
-        Organograma
+        .organograma
       </SubHeader>
 
       <div>
-        <Barchart />
+        {/* <OrgChartComponent /> */}
+        <OrgChart2 />
       </div>
 
     </div>

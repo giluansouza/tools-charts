@@ -1,6 +1,5 @@
-import { ForceDirectedGraph } from '../../components/ForceDirectedGraph/index';
+import { ForceDirectedGraph } from './components/ForceDirectedGraph';
 import { SubHeader } from '../../components/SubHeader';
-import { GraphContainer } from './styles';
 
 import MyrielImage from '../../assets/13810676.png';
 import ValjeanImage from '../../assets/13810676.png';
@@ -42,14 +41,20 @@ const dataSimplified: any = {
  export default function LinkAnalysis() {
 
   return (
-    <GraphContainer>
-      <SubHeader>.Análise de Vínculo</SubHeader>
-      <ForceDirectedGraph 
-        data={dataSimplified} 
-        width={960}
-        height={600}
-      />
-    </GraphContainer>
+    <div>
+      <SubHeader>
+        .análise de vínculos
+      </SubHeader>
+
+      <div>
+        <ForceDirectedGraph
+          width={1200}
+          height={600}
+          data={dataSimplified}
+        />
+      </div>
+
+    </div>
   );
 
 }
