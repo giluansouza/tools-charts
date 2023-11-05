@@ -2,7 +2,7 @@ import { FlowArrow, MapTrifold, TreeStructure } from "phosphor-react";
 import { SubHeader } from "../../components/SubHeader";
 import { Card, Main } from "./styles";
 
-export function Home() {
+export default function Home() {
   return (
     <>
       <SubHeader>
@@ -14,7 +14,7 @@ export function Home() {
           <h2>
             Densidade Kernel
           </h2>
-          <button disabled>Acessar</button>
+          <a href="/densidade-kernel">Acessar</a>
         </Card>
 
         <Card>
