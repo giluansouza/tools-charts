@@ -4,8 +4,6 @@ import { useEffect, useRef } from "react";
 export const Barchart = () => {
   const ref = useRef<SVGSVGElement>(null);
 
-  
-
   useEffect(() => {  
     // set the dimensions and margins of the graph
     const margin = { top: 30, right: 30, bottom: 70, left: 60 },
@@ -47,10 +45,12 @@ export const Barchart = () => {
         .selectAll("mybar")
         .data(data)
         .join("rect")
-        .attr("x", (d) => x(d.Country))
-        .attr("y", (d) => y(d.Value))
+        .attr("x", (d) => {
+          return x(d.Country) || 0;
+        })
+        .attr("y", (d) => y(parseFloat(d.Value)) || 0)
         .attr("width", x.bandwidth())
-        .attr("height", (d) => height - y(d.Value))
+        .attr("height", (d) => height - y(parseFloat(d.Value)) || 0)
         .attr("fill", "#5f0f40");
     });
   }, []);
