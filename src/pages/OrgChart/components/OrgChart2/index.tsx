@@ -14,10 +14,10 @@ export function OrgChart2() {
 
         chart.nodeHeight((_d) => 85 + 25)
           .nodeWidth((_d) => 220 + 2)
-          .childrenMargin((d) => 50)
-          .compactMarginBetween((d) => 35)
-          .compactMarginPair((d) => 30)
-          .neighbourMargin((a, b) => 20)
+          .childrenMargin((_d) => 50)
+          .compactMarginBetween((_d) => 35)
+          .compactMarginPair((_d) => 30)
+          .neighbourMargin((_a, _b) => 20)
           .nodeContent(function (node: any, _index, _nodes, _state) {
             const color = '#FFFFFF';
             const imageDiffVert = 25 + 2;
