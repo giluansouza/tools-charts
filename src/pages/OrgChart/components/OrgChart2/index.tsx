@@ -18,7 +18,7 @@ export function OrgChart2() {
           .compactMarginBetween((d) => 35)
           .compactMarginPair((d) => 30)
           .neighbourMargin((a, b) => 20)
-          .nodeContent(function (node, index, nodes, state) {
+          .nodeContent(function (node: any, _index, _nodes, _state) {
             const color = '#FFFFFF';
             const imageDiffVert = 25 + 2;
             return `

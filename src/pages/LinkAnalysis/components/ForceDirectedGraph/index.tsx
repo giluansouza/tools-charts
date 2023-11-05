@@ -71,7 +71,7 @@ export const ForceDirectedGraph: React.FC<ForceDirectedGraphProps> = ({ width, h
       .attr('stroke', '#fff')
       .attr('stroke-width', 1.5)
       .selectAll('.node')
-      .data(data.nodes, (d) => d.id)
+      .data(data.nodes, (d: any) => d.id)
       .enter()
       .append('g')
       .attr('class', 'node');
