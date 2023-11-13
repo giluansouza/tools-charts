@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { LinkExample, PageContainer, VerticalBar } from './styles';
+import { LinkExample, PageContainer } from './styles';
 import { ForceDirectedGraph } from './components/ForceDirectedGraph';
 import { SubHeader } from '../../components/SubHeader';
 import queryString from 'query-string'

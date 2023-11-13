@@ -19,12 +19,6 @@ export const LinkExample = styled(NavLink)`
   }
 `
 
-export const VerticalBar = styled.div`
-  height: 100%; /* Altura total do componente */
-  width: 1px; /* Largura da barra vertical */
-  background-color: #333; /* Cor da barra vertical */
-`
-
 export const AreaChart = styled.div`
   background-color: ${(props) => props.theme.colors.gray[400]};
   width: 100%;
