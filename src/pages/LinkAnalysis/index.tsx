@@ -1,60 +1,50 @@
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { LinkExample, PageContainer, VerticalBar } from './styles';
 import { ForceDirectedGraph } from './components/ForceDirectedGraph';
 import { SubHeader } from '../../components/SubHeader';
+import queryString from 'query-string'
 
-import MyrielImage from '../../assets/13810676.png';
-import ValjeanImage from '../../assets/13810676.png';
-import CosetteImage from '../../assets/13810676.png';
-
-const dataSimplified: any = {
-    "nodes": [
-      {"id":"Fulana","group":1, image: MyrielImage},
-      {"id":"Pai de Fulana","group":1, image: ValjeanImage},
-      {"id":"Mãe de Fulana","group":1, image: CosetteImage},
-      {"id":"Irmao de Fulana","group":1, image: CosetteImage},
-      {"id":"ocorrencia1","group":2},
-      {"id":"ocorrencia2","group":2},
-      {"id":"ocorrencia3","group":2},
-      {"id":"ocorrencia4","group":2},
-      {"id":"ocorrencia5","group":2},
-      {"id":"ocorrencia6","group":2},
-      
-    ],
-    "links": [
-      {"source": "Fulana", "target":"ocorrencia1","value":8},
-      {"source":"Fulana","target":"ocorrencia2","value":8},
-      {"source":"Fulana","target":"ocorrencia3","value":8},
-      {"source":"Fulana","target":"ocorrencia4","value":8},
-      {"source":"Fulana","target":"ocorrencia5","value":8},
-      {"source":"Fulana","target":"ocorrencia6","value":8},
-      {"source":"Pai de Fulana","target":"ocorrencia1","value":8},
-      {"source":"Pai de Fulana","target":"ocorrencia3","value":8},
-      {"source":"Pai de Fulana","target":"ocorrencia4","value":8},
-      {"source":"Pai de Fulana","target":"ocorrencia5","value":8},
-      {"source":"Pai de Fulana","target":"ocorrencia6","value":8},
-      {"source":"Mãe de Fulana","target":"ocorrencia2","value":8},
-      {"source":"Mãe de Fulana","target":"ocorrencia4","value":8},
-      {"source":"Irmao de Fulana","target":"ocorrencia2","value":8},
-      {"source":"Irmao de Fulana","target":"ocorrencia4","value":8},
-    ]
-  }
+import data0 from '../../data/data0.json'
 
  export default function LinkAnalysis() {
+  const [indice, setIndice] = useState(0)
+  const location = useLocation();
+  const parsedQuery = queryString.parse(location.search)
+  let dataSimplified: any = data0
+   
+
+  useEffect(() => {
+    if (parsedQuery.ex) {
+      let val = Number(parsedQuery.ex) - 1
+      setIndice(val)
+      console.log(val)
+    }
+  }, [parsedQuery.ex])
 
   return (
-    <div>
+    <>
       <SubHeader>
         .análise de vínculos
       </SubHeader>
 
-      <div>
+      <PageContainer>
+        <p>
+          Exemplos:{' '} 
+          <LinkExample to="/link-analysis?ex=1">Exemplo 1</LinkExample>
+          {' - '}
+          <LinkExample to="/link-analysis?ex=2">Exemplo 2</LinkExample>
+          {' - '}
+          <LinkExample to="/link-analysis?ex=3">Exemplo 3</LinkExample>
+        </p>
         <ForceDirectedGraph
           width={1200}
           height={600}
-          data={dataSimplified}
+          data={dataSimplified.data[indice]}
         />
-      </div>
+      </PageContainer>
 
-    </div>
+    </>
   );
 
 }

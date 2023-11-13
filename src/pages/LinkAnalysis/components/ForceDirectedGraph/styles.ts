@@ -5,6 +5,6 @@ export const LinkAnalysisContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 1rem;
-  padding: 2rem;
+  /* gap: 1rem; */
+  /* padding: 2rem; */
 `

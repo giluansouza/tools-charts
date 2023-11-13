@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FooterContainer = styled.header`
+export const FooterContainer = styled.footer`
   width: 100vw;
   height: 40px;
   border-top: 1px solid ${(props) => props.theme.colors.gray[600]};

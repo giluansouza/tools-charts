@@ -1,0 +1,71 @@
+{
+  "data": [
+    {
+      "nodes": [
+        {"id":"Fulana","group":1, "image": "https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png"},
+        {"id":"Pai de Fulana","group":1, "image": "https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png"},
+        {"id":"Mãe de Fulana","group":1, "image": "https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png"},
+        {"id":"Irmao de Fulana","group":1, "image": "https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png"},
+        {"id":"ocorrencia1","group":2},
+        {"id":"ocorrencia2","group":2},
+        {"id":"ocorrencia3","group":2},
+        {"id":"ocorrencia4","group":2},
+        {"id":"ocorrencia5","group":2},
+        {"id":"ocorrencia6","group":2}
+      ],
+      "links": [
+        {"source": "Fulana", "target":"ocorrencia1","value":8},
+        {"source":"Fulana","target":"ocorrencia2","value":8},
+        {"source":"Fulana","target":"ocorrencia3","value":8},
+        {"source":"Fulana","target":"ocorrencia4","value":8},
+        {"source":"Fulana","target":"ocorrencia5","value":8},
+        {"source":"Fulana","target":"ocorrencia6","value":8},
+        {"source":"Pai de Fulana","target":"ocorrencia1","value":8},
+        {"source":"Pai de Fulana","target":"ocorrencia3","value":8},
+        {"source":"Pai de Fulana","target":"ocorrencia4","value":8},
+        {"source":"Pai de Fulana","target":"ocorrencia5","value":8},
+        {"source":"Pai de Fulana","target":"ocorrencia6","value":8},
+        {"source":"Mãe de Fulana","target":"ocorrencia2","value":8},
+        {"source":"Mãe de Fulana","target":"ocorrencia4","value":8},
+        {"source":"Irmao de Fulana","target":"ocorrencia2","value":8},
+        {"source":"Irmao de Fulana","target":"ocorrencia4","value":8}
+      ]
+    },
+    {
+      "nodes": [
+        {"id":"Dominga Maria",  "title":"Dominga Maria","group":0, "image": "https://tools.devboot.com.br/dominga.jpg"},
+        {"id":"Flávia Nunes", "title":"Flávia Nunes", "group":0, "image": "https://tools.devboot.com.br/flavia.jpg"},
+        {"id":"Judite Angelina", "title":"Judite Angelina", "group":0, "image": "https://tools.devboot.com.br/judite.jpg"},
+        {"id":"Eguinaldo de Jesus", "title":"Eguinaldo de Jesus", "group":0, "image": "https://tools.devboot.com.br/eguinaldo.jpg"},
+        {"id":"Carlos José", "title":"Carlos José", "group":0, "image": "https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png"},
+        {"id":"Homicidio", "title": "", "group":1}
+      ],
+      "links": [
+        {"source":"Dominga Maria", "target":"Homicidio","value":1},
+        {"source":"Flávia Nunes","target":"Homicidio","value":1},
+        {"source":"Judite Angelina","target":"Homicidio","value":1},
+        {"source":"Eguinaldo de Jesus","target":"Homicidio","value":1},
+        {"source":"Eguinaldo de Jesus","target":"Dominga Maria","value":2},
+        {"source":"Carlos José","target":"Homicidio","value":1},
+        {"source":"Carlos José","target":"Judite Angelina","value":2}
+      ]
+    },
+    {
+      "nodes": [
+        {"id":"123",  "title":"Tiago Campos - 'Galeguinho'","group":0, "image": "https://tools.devboot.com.br/tiago campos.jpg"},
+        {"id":"1234", "title":"Roberto Ferreira", "group":0, "image": "https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png"},
+        {"id":"12345", "title":"JHAWAN MATEUS", "group":0, "image": "https://tools.devboot.com.br/judite.jpg"},
+        {"id":"Eguinaldo de Jesus", "title":"Eguinaldo de Jesus", "group":0, "image": "https://tools.devboot.com.br/eguinaldo.jpg"},
+        {"id":"Carlos José", "title":"Carlos José", "group":0, "image":"https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png"},
+        {"id":"Homicidio", "title": "", "group":1},
+        {"id":"Homicidio2", "title": "", "group":1}
+      ],
+      "links": [
+        {"source":"123", "target":"Homicidio","value":1},
+        {"source":"1234", "target":"Homicidio","value":1},
+        {"source":"123","target":"Homicidio2","value":1},
+        {"source":"12345","target":"Homicidio2","value":1}
+      ]
+    }
+  ]
+}

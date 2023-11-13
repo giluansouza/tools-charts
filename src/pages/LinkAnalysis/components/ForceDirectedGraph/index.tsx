@@ -4,6 +4,7 @@ import { LinkAnalysisContainer } from "./styles";
 
 interface Node {
   id: string;
+  title: string;
   group: number;
   x?: number;
   y?: number;
@@ -31,39 +32,45 @@ export const ForceDirectedGraph: React.FC<ForceDirectedGraphProps> = ({ width, h
   const svgRef = useRef<SVGSVGElement | null>(null)
 
   useEffect(() => {
-    if (!svgRef.current) return;
+    if (!svgRef.current) return
 
-    const svg = d3.select(svgRef.current);
+    const svg = d3.select(svgRef.current)
+    svg.selectAll("*").remove()
     // const zoomBehavior = d3
     //   .zoom<SVGSVGElement, unknown>()
     //   .scaleExtent([0.1, 1.5])
     //   .on('zoom', zoomed)
-
     // svg.call(zoomBehavior)
 
     // Specify the color scale.
-    const color = d3.scaleOrdinal(d3.schemeCategory10);
+    const color = d3.scaleOrdinal()
+    .domain([...Array(3).keys()].map(String)) // Domínio de 0 a 10
+    .range(['#000000', '#FF0000', '#00d9ff'])
+    // Specify a color scale for links
+    const linkColor = d3.scaleOrdinal()
+    .domain([...Array(3).keys()].map(String)) // Domínio de 0 a 10
+    .range(['#000000', '#FF0000', '#00d9ff'])
 
-    svg.style('background-color', '#e9e9e9');
+    svg.style('background-color', '#e9e9e9')
     
     // Configuração do layout de força
     const simulation = d3
       .forceSimulation<Node>(data.nodes)
       .force('link', d3.forceLink<Node, Link>(data.links).id(d => d.id))
-      .force('charge', d3.forceManyBody<Node>().strength(-200))
+      .force('charge', d3.forceManyBody<Node>().strength(-2200))
       .force('center', d3.forceCenter(width / 2, height / 2))
       .on('tick', ticked);
 
     // Renderização dos links
     const link = svg
       .append('g')
-      .attr('stroke', '#999')
-      .attr('stroke-opacity', 0.6)
       .selectAll<SVGLineElement, Link>('line')
       .data(data.links)
       .enter()
       .append('line')
-      .attr('stroke-width', d => Math.sqrt(d.value));
+      .attr('stroke', (d) => linkColor(d.value.toString()) as string)
+      .attr('stroke-opacity', 0.6)
+      .attr('stroke-width', (d) => Math.sqrt(d.value));
 
     // Renderização dos nós
     const node = svg
@@ -76,18 +83,25 @@ export const ForceDirectedGraph: React.FC<ForceDirectedGraphProps> = ({ width, h
       .append('g')
       .attr('class', 'node');
 
-    node.append('title').text(d => d.id);
+    node.append('title')
+      .text(d => d.id);
 
     const circle = node
       .append('circle')
-      .attr('r', 10)
-      .attr('fill', (d) => color(d.group.toString()));
+      .attr('r', 20)
+      .attr('fill', (d) => color(d.group.toString()) as string);
   
     const image = node
       .append('image')
-      .attr('width', 32)
-      .attr('height', 32)
+      .attr('width', 48)
+      .attr('height', 48)
       .attr('xlink:href', (d) => d.image ? d.image : '');
+    
+    const text = node
+      .append('text')
+      .text((d) => d.title)
+      .style("font-size", "12px")
+      .attr('stroke-width', 0)
 
     node.call(
         d3
@@ -105,8 +119,12 @@ export const ForceDirectedGraph: React.FC<ForceDirectedGraphProps> = ({ width, h
         .attr('y2', d => (d.target as unknown as Node).y!);
 
       image
-        .attr('x', (d) => d.x! - 12)
-        .attr('y', (d) => d.y! - 12);
+        .attr('x', (d) => d.x! - 24)
+        .attr('y', (d) => d.y! - 24);
+      
+      text
+        .attr('x', (d) => (d.x !== undefined && d.x !== null) ? d.x - 32 : 0)
+        .attr('y', (d) => (d.y !== undefined && d.y !== null) ? d.y + 34 : 0);
 
       circle
         .attr('cx', (d) => d.x!)
@@ -137,7 +155,7 @@ export const ForceDirectedGraph: React.FC<ForceDirectedGraphProps> = ({ width, h
     return () => {
       simulation.stop();
     }
-  }, [])
+  }, [data])
   
   return (
     <LinkAnalysisContainer>
